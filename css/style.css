@@ -6,6 +6,11 @@ body {
     background: var(--purple);
 }
 
+
+.g-20 {
+    gap: 20px;
+}
+
 .ticket {
     width: 80%;
     margin: 0 auto;
@@ -17,7 +22,26 @@ body {
     font-weight: bold;
 }
 
-input {
+input , select{
     border-radius: 5px;
     border: 2px solid var(--purple);
+    font-weight: bold;
+    padding: 0.3rem;
+    text-align: center;
+}
+
+input[type="button"] {
+    padding: 0.3rem;
+    color: var(--purple);
+    font-weight: bold;
+    background: lightgray;
+}
+
+
+.mostra {
+    display: block;
+}
+
+.nascondi {
+    display: none;
 }
