@@ -30,23 +30,34 @@ il responsive è opzionale!!!!
 
 
 const prezzoAlKm = 0.21;
-let km ;
-let eta ;
-let totale = prezzoAlKm * km ;
-let sconto = 0 ;
-let errore = false ;
-
 const minKm = 10 ;
 const maxKm = 200; 
 
-const nomeCognome = document.getElementById("nome");
+
+let totale = prezzoAlKm * km ;
+let sconto = 0 ;
+
+let errore = false ;
+
+
+let nome = document.getElementById("nome");
+
 
 
 
 const genera = document.querySelector("#genera");
 genera.addEventListener("click" , function(){
 
-const nascosto = document.querySelector(".nascondi");
-nascosto.classList.replace("nascondi" , "mostra");
+const bigliettoGenerato = document.querySelector(".bigliettoGenerato");
+if(bigliettoGenerato.classList.contains("nascondi")){
+    bigliettoGenerato.classList.add("mostra");
+    bigliettoGenerato.classList.remove("nascondi");
+}
+else{
+    bigliettoGenerato.classList.remove("mostra");
+    bigliettoGenerato.classList.add("nascondi");
+}
+
+console.log(nome.value)
 
 })
