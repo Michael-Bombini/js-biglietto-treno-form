@@ -34,30 +34,40 @@ const minKm = 10 ;
 const maxKm = 200; 
 
 
-let totale = prezzoAlKm * km ;
 let sconto = 0 ;
-
 let errore = false ;
 
 
-let nome = document.getElementById("nome");
+const nome = document.getElementById("nome");
+let km = document.getElementById("km").value;
+
+km = parseInt(km);
+
+let totale = prezzoAlKm * km ;
 
 
 
 
+
+const bigliettoGenerato = document.querySelector(".bigliettoGenerato");
+
+
+
+//dichiarazione variabile genera e specifico evento sul click di creazione del biglietto
 const genera = document.querySelector("#genera");
 genera.addEventListener("click" , function(){
 
-const bigliettoGenerato = document.querySelector(".bigliettoGenerato");
-if(bigliettoGenerato.classList.contains("nascondi")){
     bigliettoGenerato.classList.add("mostra");
     bigliettoGenerato.classList.remove("nascondi");
-}
-else{
+
+})
+
+
+//dichiarazione variabile annulla e specifico evento sul click di eliminazione dei campi
+const annulla = document.getElementById("annulla");
+annulla.addEventListener("click" , function(){
+
     bigliettoGenerato.classList.remove("mostra");
     bigliettoGenerato.classList.add("nascondi");
-}
-
-console.log(nome.value)
-
+    
 })
