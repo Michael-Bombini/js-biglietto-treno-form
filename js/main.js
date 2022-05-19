@@ -85,7 +85,7 @@ genera.addEventListener("click" , function(){
 
     if(nomeV.length <= 0 || isNaN(kmV)){
         errore = true;
-        alert("ATTENZIONE O NON HAI INSERITO IL NOME O I KM");
+        alert("ATTENZIONE O NON HAI INSERITO IL NOME O I KM O NON SONO STATI INSERITI COME NUMERO");
     }
     
 
