@@ -82,7 +82,7 @@ genera.addEventListener("click" , function(){
 
     costoV = kmV * 0.21 ;
 
-    if(nomeV.length <= 0 || isNaN(kmV)){
+    if(nomeV.length <= 0 || isNaN(kmV) || kmV <= 0){
         errore = true;
     }
     
