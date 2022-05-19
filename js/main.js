@@ -39,12 +39,23 @@ let errore = false ;
 
 
 const nome = document.getElementById("nome");
-let km = document.getElementById("km").value;
+const km = document.getElementById("km");
+const eta = document.getElementById("eta");
 
-km = parseInt(km);
 
-let totale = prezzoAlKm * km ;
+let nomeV = "";
+let kmV = 0 ;
+let etaV = 0 ;
 
+
+const nomePasseggero = document.getElementById("nomePasseggero");
+const tipoBiglietto = document.getElementById("tipoBiglietto");
+const carrozza = document.getElementById("carrozza");
+const codiceCP = document.getElementById("codiceCP");
+const costoBiglietto = document.getElementById("costoBiglietto");
+
+let randomCP = 0 ;
+let randomCarrozza = 0 ;
 
 
 
@@ -57,6 +68,26 @@ const bigliettoGenerato = document.querySelector(".bigliettoGenerato");
 const genera = document.querySelector("#genera");
 genera.addEventListener("click" , function(){
 
+   
+    nomeV = nome.value;
+    kmV = parseInt(km.value);
+    etaV = eta.value;
+    
+
+    randomCP = Math.floor(Math.random()*90000) + 10000; //numero random di 5 cifre
+    randomCarrozza = Math.floor(Math.random()*10) + 1 ; //numero random tra 1 e 10 
+    
+    
+    nomePasseggero.innerHTML = nomeV;
+    tipoBiglietto.innerHTML = "biglietto" + " " +  etaV;
+    carrozza.innerHTML = randomCarrozza;
+    codiceCP.innerHTML = randomCP;
+    costoBiglietto.innerHTML = etaV;
+
+
+
+
+    
     bigliettoGenerato.classList.add("mostra");
     bigliettoGenerato.classList.remove("nascondi");
 
