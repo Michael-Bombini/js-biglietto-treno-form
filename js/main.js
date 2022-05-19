@@ -84,7 +84,6 @@ genera.addEventListener("click" , function(){
 
     if(nomeV.length <= 0 || isNaN(kmV)){
         errore = true;
-        alert("ATTENZIONE O NON HAI INSERITO IL NOME O I KM O NON SONO STATI INSERITI COME NUMERO");
     }
     
 
@@ -116,9 +115,12 @@ genera.addEventListener("click" , function(){
     codiceCP.innerHTML = randomCP;
     costoBiglietto.innerHTML = costoV;
 
-
-    
-
+    }
+    else if(errore){
+        let me = document.querySelector(".warning");
+        me.classList.add("mostra");
+        me.style.display = "block";
+      
     }
 
 
@@ -139,3 +141,9 @@ annulla.addEventListener("click" , function(){
 })
 
 
+
+const danger = document.querySelector(".btn-danger");
+danger.addEventListener("click" , function(){
+
+    location.reload();
+})
