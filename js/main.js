@@ -30,8 +30,6 @@ il responsive è opzionale!!!!
 
 
 const prezzoAlKm = 0.21;
-const minKm = 10 ;
-const maxKm = 200; 
 
 
 let sconto = 0 ;
@@ -57,6 +55,7 @@ const costoBiglietto = document.getElementById("costoBiglietto");
 let randomCP = 0 ;
 let randomCarrozza = 0 ;
 
+let costoV ;
 
 
 
@@ -68,7 +67,11 @@ const bigliettoGenerato = document.querySelector(".bigliettoGenerato");
 const genera = document.querySelector("#genera");
 genera.addEventListener("click" , function(){
 
-   
+
+
+
+ 
+
     nomeV = nome.value;
     kmV = parseInt(km.value);
     etaV = eta.value;
@@ -77,20 +80,49 @@ genera.addEventListener("click" , function(){
     randomCP = Math.floor(Math.random()*90000) + 10000; //numero random di 5 cifre
     randomCarrozza = Math.floor(Math.random()*10) + 1 ; //numero random tra 1 e 10 
     
+
+    costoV = kmV * 0.21 ;
+
+    if(nomeV.length <= 0 || isNaN(kmV)){
+        errore = true;
+        alert("ATTENZIONE O NON HAI INSERITO IL NOME O I KM");
+    }
     
-    nomePasseggero.innerHTML = nomeV;
-    tipoBiglietto.innerHTML = "biglietto" + " " +  etaV;
-    carrozza.innerHTML = randomCarrozza;
-    codiceCP.innerHTML = randomCP;
-    costoBiglietto.innerHTML = etaV;
 
 
 
+    if(!errore){
+ 
+    if(eta.value === "minorenne")
+    {
+        sconto = kmV*0.21*0.2;
+        
+    }
+    else if(eta.value === "over65"){
+        sconto = kmV*0.21*0.4;
+    }
+
+    costoV -= sconto ;
+    costoV.toFixed(2);
 
     
     bigliettoGenerato.classList.add("mostra");
     bigliettoGenerato.classList.remove("nascondi");
 
+
+    nomePasseggero.innerHTML = nomeV;
+    tipoBiglietto.innerHTML = "biglietto" + " " +  etaV;
+    carrozza.innerHTML = randomCarrozza;
+    codiceCP.innerHTML = randomCP;
+    costoBiglietto.innerHTML = costoV;
+
+
+    
+
+    }
+
+
+errore = false;
 })
 
 
@@ -100,5 +132,10 @@ annulla.addEventListener("click" , function(){
 
     bigliettoGenerato.classList.remove("mostra");
     bigliettoGenerato.classList.add("nascondi");
+    nome.value = "";
+    km.value = "";
     
+
 })
+
+
