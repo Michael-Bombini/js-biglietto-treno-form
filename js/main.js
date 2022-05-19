@@ -69,7 +69,6 @@ genera.addEventListener("click" , function(){
 
 
 
-
  
 
     nomeV = nome.value;
@@ -103,7 +102,8 @@ genera.addEventListener("click" , function(){
     }
 
     costoV -= sconto ;
-    costoV.toFixed(2);
+    costoV = costoV.toFixed(2);
+
 
     
     bigliettoGenerato.classList.add("mostra");
